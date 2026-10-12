@@ -4,20 +4,24 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sponsor my race kit</title>
-  <meta name="description" content="Buy an advertising spot on my triathlon, cycling and running kit for one race or a full season.">
+  <meta name="description" content="Buy an advertising spot on a Singapore triathlete's race kit, for one race or a full season.">
+  <meta name="theme-color" content="#06080b">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script type="importmap">
+    { "imports": { "three": "./vendor/three/three.module.js", "three/addons/": "./vendor/three/jsm/" } }
+  </script>
 </head>
 <body>
-  <a class="skip" href="#kit">Skip to the kit</a>
+  <a class="skip" href="#spots">Skip to the spot list</a>
 
   <header class="site-header">
-    <div class="wrap header-row">
-      <a class="brand" href="#top" data-bind="name">Sam Carter</a>
+    <div class="header-row">
+      <a class="brand" href="#top"><span class="brand-dot" aria-hidden="true"></span><span data-bind="name">Ethan Lim</span></a>
       <nav aria-label="Main">
-        <a href="#kit">Kit</a>
+        <a href="#top">Kit</a>
         <a href="#about">About</a>
         <a href="#sponsors">Sponsors</a>
         <a href="#contact">Contact</a>
@@ -29,48 +33,57 @@
   </header>
 
   <main id="top">
-    <section class="hero wrap">
-      <h1>Rent a patch<br>of my race kit.</h1>
-      <p class="lede" data-bind="intro"></p>
-    </section>
-
-    <section id="kit" class="kit wrap" aria-label="Choose a spot">
-      <div class="garment-tabs" role="tablist" aria-label="Gear" id="garment-tabs"></div>
-
-      <div class="kit-grid">
-        <figure class="drawing">
-          <svg id="kit-svg" viewBox="0 0 400 500" role="group" aria-label="Kit drawing with ad spots"></svg>
-          <figcaption class="drawing-foot">
-            <div class="view-toggle" id="view-toggle" role="group" aria-label="View"></div>
-            <ul class="legend" aria-label="Legend">
-              <li><span class="swatch open"></span>Available</li>
-              <li><span class="swatch picked"></span>In your cart</li>
-              <li><span class="swatch sold"></span>Taken</li>
-            </ul>
-          </figcaption>
-        </figure>
-
-        <div class="spec">
-          <fieldset class="term">
-            <legend>How long?</legend>
-            <div class="segmented">
-              <label><input type="radio" name="term" value="season" checked><span>Full <b data-bind="season"></b> season</span></label>
-              <label><input type="radio" name="term" value="race"><span>One race</span></label>
-            </div>
-            <label class="race-pick" id="race-pick" hidden>
-              <span class="sr-only">Race</span>
-              <select id="race-select"></select>
-            </label>
-          </fieldset>
-
-          <ol class="spots" id="spot-list" aria-label="Spots on this kit"></ol>
-
-          <p class="spec-note">Click a spot on the drawing or in the list to add it to your cart.</p>
+    <section class="studio" aria-label="Choose a spot">
+      <div class="stage" id="stage">
+        <canvas id="stage-canvas" aria-label="3D view of the kit. Drag to rotate, click a glowing spot to add it to your cart."></canvas>
+        <div class="hud" aria-hidden="true">
+          <span class="hud-corner tl"></span><span class="hud-corner tr"></span>
+          <span class="hud-corner bl"></span><span class="hud-corner br"></span>
+          <div class="hud-read">
+            <span class="hud-title" id="hud-title">Trisuit</span>
+            <span class="hud-data"><span id="hud-angle">000</span>° rotation</span>
+            <span class="hud-data"><span id="hud-open">0</span> of <span id="hud-total">0</span> spots open</span>
+          </div>
+          <div class="scan"></div>
         </div>
+        <div class="stage-foot">
+          <div class="view-toggle" role="group" aria-label="Camera">
+            <button type="button" data-view="front">Front</button>
+            <button type="button" data-view="side">Side</button>
+            <button type="button" data-view="back">Back</button>
+          </div>
+          <p class="stage-hint">Drag to rotate. Tap a glowing spot to add it.</p>
+        </div>
+        <p class="stage-fallback" id="stage-fallback" hidden>3D preview isn't available in this browser. You can still pick spots from the list.</p>
+      </div>
+
+      <div class="panel">
+        <div class="intro">
+          <p class="flag"><span class="flag-mark" aria-hidden="true"></span>Singapore triathlete, <span data-bind="season"></span> season</p>
+          <h1>Put your brand on my race kit.</h1>
+          <p class="lede" data-bind="intro"></p>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="Gear" id="tabs"></div>
+
+        <fieldset class="term">
+          <legend>How long?</legend>
+          <div class="segmented">
+            <label><input type="radio" name="term" value="season" checked><span>Full <b data-bind="season"></b> season</span></label>
+            <label><input type="radio" name="term" value="race"><span>One race</span></label>
+          </div>
+          <label class="race-pick" id="race-pick" hidden>
+            <span class="sr-only">Race</span>
+            <select id="race-select"></select>
+          </label>
+        </fieldset>
+
+        <ol class="spots" id="spots" aria-label="Spots on this kit"></ol>
+        <p class="spec-note">Sizes are the printed patch. Prices in Singapore dollars.</p>
       </div>
     </section>
 
-    <section id="about" class="about wrap">
+    <section id="about" class="about wrap reveal">
       <div class="portrait" id="portrait"></div>
       <div class="about-text">
         <h2>About me</h2>
@@ -79,13 +92,13 @@
       </div>
     </section>
 
-    <section id="sponsors" class="sponsors wrap">
+    <section id="sponsors" class="sponsors wrap reveal">
       <h2>Who's on the kit</h2>
-      <p class="section-sub">Brands already riding along this season.</p>
+      <p class="section-sub">Brands already racing with me this season.</p>
       <ul class="sponsor-wall" id="sponsor-wall"></ul>
     </section>
 
-    <section id="contact" class="contact wrap">
+    <section id="contact" class="contact wrap reveal">
       <h2>Talk to me first</h2>
       <p class="section-sub">Want a custom spot, a bundle or a race that isn't listed? Send me a note.</p>
       <a class="email" id="email-link" href="#"></a>
@@ -98,7 +111,6 @@
     <button type="button" class="linkish" id="reset-demo">Clear demo orders</button>
   </footer>
 
-  <!-- Cart drawer -->
   <dialog class="drawer" id="cart" aria-labelledby="cart-title">
     <div class="drawer-head">
       <h2 id="cart-title">Your cart</h2>
@@ -107,7 +119,6 @@
     <div id="cart-body"></div>
   </dialog>
 
-  <!-- Checkout -->
   <dialog class="modal" id="checkout" aria-labelledby="checkout-title">
     <form id="checkout-form" class="checkout" novalidate>
       <div class="drawer-head">
@@ -115,28 +126,24 @@
         <button type="button" class="close" data-close aria-label="Close checkout">×</button>
       </div>
       <p class="demo-note">Demo checkout: no payment is taken and nothing is sent.</p>
-
       <div class="field-row">
         <label class="field"><span>Your name</span><input name="name" autocomplete="name" required></label>
         <label class="field"><span>Company</span><input name="company" autocomplete="organization" required></label>
       </div>
       <label class="field"><span>Email</span><input name="email" type="email" autocomplete="email" required></label>
       <label class="field"><span>Website <em>optional</em></span><input name="url" type="url" placeholder="https://"></label>
-
-      <div class="field logo-field">
+      <div class="field">
         <span>Logo</span>
-        <label class="logo-drop" id="logo-drop">
+        <label class="logo-drop">
           <input type="file" name="logo" accept="image/*" id="logo-input">
           <span class="logo-drop-text" id="logo-text">Upload a PNG, JPG or SVG. Transparent backgrounds look best.</span>
           <img id="logo-preview" alt="" hidden>
         </label>
       </div>
-
       <div class="summary" id="checkout-summary"></div>
       <p class="form-error" id="form-error" role="alert"></p>
       <button class="primary" type="submit">Place demo order</button>
     </form>
-
     <div class="confirm" id="confirm" hidden>
       <div class="drawer-head">
         <h2>Order placed</h2>
@@ -150,6 +157,6 @@
 
   <script src="config.js"></script>
   <script src="kit.js"></script>
-  <script src="app.js"></script>
+  <script type="module" src="app.js"></script>
 </body>
 </html>

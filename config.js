@@ -1,89 +1,95 @@
 // ─────────────────────────────────────────────────────────────
 //  Edit this file to make the site yours.
-//  Prices are whole numbers in the currency below.
+//  Prices are whole numbers in Singapore dollars.
 //  To mark a spot as taken, add a `sold` object to it (see "tri-chest").
 // ─────────────────────────────────────────────────────────────
 window.SPONSOR_CONFIG = {
   athlete: {
-    name: "Sam Carter",
+    name: "Ethan Lim",
     intro:
-      "I race 70.3 and full-distance triathlon. Pick a spot on my race kit, choose one race or the whole season, and your logo goes where the cameras point.",
+      "Singapore age-group triathlete racing sprint to 70.3 across Southeast Asia. Spin the kit, pick a spot, and your logo races with me.",
     bio: [
-      "I'm an age-group triathlete based in Boulder, Colorado. I started racing in 2019 after a stubborn knee injury pushed me off the running track and into the pool.",
-      "In 2027 I'm chasing a Kona slot. Every race gets a full write-up on Instagram and Strava, and every sponsor is tagged in race-day photos, finish-line videos and the recap that follows.",
+      "I train in Singapore's heat and humidity: swims at East Coast, rides out to Changi, runs along the Park Connector at 5am before the sun gets serious.",
+      "In 2027 I'm racing six events across Singapore, Malaysia and Indonesia. Every race gets a write-up on Instagram and Strava, and every sponsor is tagged in race-day photos, finish-line videos and the recap that follows.",
     ],
     // Path to your photo, e.g. "images/me.jpg". Leave empty to show a placeholder.
     photo: "",
     facts: [
-      ["Home base", "Boulder, Colorado"],
-      ["Racing since", "2019"],
-      ["Best 70.3", "4:38:12"],
-      ["Instagram", "8.4k followers"],
-      ["Strava", "2.1k followers"],
+      ["Home base", "Singapore"],
+      ["Racing since", "2020"],
+      ["Best 70.3", "5:02:41"],
+      ["Instagram", "6.2k followers"],
+      ["Strava", "1.8k followers"],
     ],
   },
 
   season: "2027",
-  currency: "USD",
+  currencySymbol: "S$",
   email: "hello@example.com",
 
   socials: [
     { label: "Instagram", url: "https://instagram.com/" },
     { label: "Strava", url: "https://strava.com/" },
-    { label: "YouTube", url: "https://youtube.com/" },
+    { label: "TikTok", url: "https://tiktok.com/" },
   ],
 
-  // Races a sponsor can choose when buying a single race.
+  // Races a sponsor can choose for a single-race deal. Placeholder dates: check and edit.
   races: [
-    { name: "Oceanside 70.3", date: "Apr 3" },
-    { name: "St. George 70.3", date: "May 8" },
-    { name: "Boulder 70.3", date: "Jun 12" },
-    { name: "Ironman Lake Placid", date: "Jul 24" },
-    { name: "Santa Cruz 70.3", date: "Sep 11" },
-    { name: "Ironman Arizona", date: "Nov 20" },
+    { name: "MetaSprint Duathlon, Singapore", date: "Feb" },
+    { name: "Ironman 70.3 Desaru Coast", date: "Mar" },
+    { name: "Singapore International Triathlon", date: "May" },
+    { name: "Ironman 70.3 Bintan", date: "Aug" },
+    { name: "MetaSprint Triathlon, Singapore", date: "Sep" },
+    { name: "Ironman 70.3 Langkawi", date: "Nov" },
   ],
 
-  // One entry per spot. `race` = price for a single race, `season` = whole season.
-  // Spot ids match the drawings in kit.js.
+  // One entry per spot. `race` = price for one race, `season` = whole season (S$).
+  // Spot ids match kit.js.
   spots: {
     // Trisuit
-    "tri-chest":    { race: 250, season: 1800,
-                      sold: { sponsor: "Northline Coffee", url: "https://example.com", logo: "" } },
-    "tri-sleeve-r": { race: 90,  season: 600 },
-    "tri-sleeve-l": { race: 90,  season: 600 },
-    "tri-belly":    { race: 150, season: 1000 },
-    "tri-thigh-r":  { race: 80,  season: 550 },
-    "tri-thigh-l":  { race: 80,  season: 550 },
-    "tri-namebar":  { race: 120, season: 800 },
-    "tri-back":     { race: 200, season: 1400 },
-    "tri-seat":     { race: 140, season: 950,
-                      sold: { sponsor: "Peak Physio", url: "", logo: "" } },
+    "tri-chest":    { race: 350, season: 2400,
+                      sold: { sponsor: "Kopi Lab", url: "https://example.com", logo: "" } },
+    "tri-sleeve-r": { race: 120, season: 800 },
+    "tri-sleeve-l": { race: 120, season: 800 },
+    "tri-belly":    { race: 200, season: 1300 },
+    "tri-thigh-r":  { race: 110, season: 700 },
+    "tri-thigh-l":  { race: 110, season: 700 },
+    "tri-namebar":  { race: 160, season: 1000 },
+    "tri-back":     { race: 280, season: 1800 },
+    "tri-seat":     { race: 190, season: 1200,
+                      sold: { sponsor: "Lion Physio", url: "", logo: "" } },
 
     // Cycling kit
-    "bike-chest":    { race: 180, season: 1200 },
-    "bike-sleeve-r": { race: 70,  season: 450 },
-    "bike-sleeve-l": { race: 70,  season: 450 },
-    "bike-front":    { race: 110, season: 700 },
-    "bike-thigh-r":  { race: 60,  season: 400 },
-    "bike-thigh-l":  { race: 60,  season: 400 },
-    "bike-back":     { race: 160, season: 1100 },
-    "bike-pockets":  { race: 120, season: 800 },
-    "bike-seat":     { race: 90,  season: 600 },
+    "cyc-chest":    { race: 240, season: 1600 },
+    "cyc-sleeve-r": { race: 90,  season: 600 },
+    "cyc-sleeve-l": { race: 90,  season: 600 },
+    "cyc-front":    { race: 150, season: 950 },
+    "cyc-thigh-r":  { race: 80,  season: 520 },
+    "cyc-thigh-l":  { race: 80,  season: 520 },
+    "cyc-back":     { race: 210, season: 1400 },
+    "cyc-pockets":  { race: 160, season: 1050 },
+    "cyc-seat":     { race: 120, season: 800 },
 
     // Running kit
-    "run-chest":  { race: 160, season: 1100 },
-    "run-front":  { race: 100, season: 650 },
-    "run-leg-r":  { race: 50,  season: 320 },
-    "run-leg-l":  { race: 50,  season: 320 },
-    "run-back":   { race: 130, season: 900 },
-    "run-waist":  { race: 70,  season: 450 },
+    "run-cap":   { race: 120, season: 800 },
+    "run-chest": { race: 210, season: 1400 },
+    "run-front": { race: 130, season: 850 },
+    "run-leg-r": { race: 70,  season: 420 },
+    "run-leg-l": { race: 70,  season: 420 },
+    "run-back":  { race: 170, season: 1150 },
+    "run-waist": { race: 90,  season: 600 },
 
-    // Accessories
-    "acc-cap":      { race: 90,  season: 600 },
-    "acc-helmet":   { race: 120, season: 850 },
-    "acc-belt":     { race: 40,  season: 250 },
-    "acc-downtube": { race: 200, season: 1500,
-                      sold: { sponsor: "Gearhaus Cycles", url: "https://example.com", logo: "" } },
-    "acc-toptube":  { race: 80,  season: 500 },
+    // Helmet & race belt
+    "helm-side-r": { race: 140, season: 950 },
+    "helm-side-l": { race: 140, season: 950 },
+    "helm-tail":   { race: 100, season: 650 },
+    "helm-belt":   { race: 60,  season: 350 },
+
+    // Bike
+    "bike-downtube": { race: 280, season: 2000,
+                       sold: { sponsor: "Merlion Cycles", url: "https://example.com", logo: "" } },
+    "bike-toptube":  { race: 110, season: 700 },
+    "bike-disc":     { race: 320, season: 2200 },
+    "bike-seattube": { race: 120, season: 780 },
   },
 };
