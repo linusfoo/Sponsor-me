@@ -47,3 +47,7 @@ python3 -m http.server 8000
 2. Go to **Settings → Pages**.
 3. Under **Build and deployment**, choose **Deploy from a branch**, pick `master` (or `main`) and the `/ (root)` folder, then save.
 4. After a minute the site is live at `https://<your-username>.github.io/<repo-name>/`.
+
+## After editing
+
+Browsers cache the site's files for a few minutes. When you change `config.js` (or any other file), bump the `?v=` number on the `<script>` and `<link>` tags in `index.html` (and the `stage.js` import at the top of `app.js`) so visitors get the new version straight away.

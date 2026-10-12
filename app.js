@@ -1,4 +1,4 @@
-import { createStage } from "./stage.js";
+import { createStage } from "./stage.js?v=202610120952";
 
 const C = window.SPONSOR_CONFIG;
 const K = window.KIT;
