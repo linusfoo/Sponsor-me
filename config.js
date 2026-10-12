@@ -5,21 +5,22 @@
 // ─────────────────────────────────────────────────────────────
 window.SPONSOR_CONFIG = {
   athlete: {
-    name: "Ethan Lim",
+    name: "Bryce Chong",
     intro:
-      "Singapore age-group triathlete racing sprint to 70.3 across Southeast Asia. Spin the kit, pick a spot, and your logo races with me.",
+      "Singapore national triathlete and SEA Games medallist. Spin the kit, pick a spot, and your brand races with Team Singapore's triathlon squad.",
     bio: [
-      "I train in Singapore's heat and humidity: swims at East Coast, rides out to Changi, runs along the Park Connector at 5am before the sun gets serious.",
-      "In 2027 I'm racing six events across Singapore, Malaysia and Indonesia. Every race gets a write-up on Instagram and Strava, and every sponsor is tagged in race-day photos, finish-line videos and the recap that follows.",
+      "I'm a Singapore national triathlete and a Singapore Sports School alumnus. I race draft-legal sprint and standard-distance triathlon and aquathlon for Team Singapore, and non-drafting half-Ironman (70.3) races on the tri bike.",
+      "I've won medals at three SEA Games: silver in the mixed relay in 2019, bronze in the men's aquathlon in 2023 (Singapore's first medal of those Games), and silver in the men's relay in 2025. I raced the mixed relay for Singapore at the Hangzhou 2022 Asian Games, and I've won MetaSprint Series and SMU Aquathlon titles at home.",
+      "Every race gets a write-up on my socials and YouTube channel, and every sponsor is tagged in race-day photos, finish-line videos and the recap that follows.",
     ],
-    // Path to your photo, e.g. "images/me.jpg". Leave empty to show a placeholder.
+    // Path to your photo, e.g. "images/bryce.jpg". Leave empty to show a placeholder.
     photo: "",
     facts: [
-      ["Home base", "Singapore"],
-      ["Racing since", "2020"],
-      ["Best 70.3", "5:02:41"],
-      ["Instagram", "6.2k followers"],
-      ["Strava", "1.8k followers"],
+      ["Representing", "Singapore"],
+      ["SEA Games medals", "2 silver, 1 bronze"],
+      ["Asian Games", "Hangzhou 2022"],
+      ["Races", "Sprint to 70.3, aquathlon"],
+      ["Born", "1997"],
     ],
   },
 
@@ -29,18 +30,18 @@ window.SPONSOR_CONFIG = {
 
   socials: [
     { label: "Instagram", url: "https://instagram.com/" },
-    { label: "Strava", url: "https://strava.com/" },
-    { label: "TikTok", url: "https://tiktok.com/" },
+    { label: "YouTube", url: "https://www.youtube.com/@brycechong_triathlon" },
+    { label: "World Triathlon profile", url: "https://www.triathlon.org/athletes/profile/70060/sheng-cher-bryce-chong" },
   ],
 
-  // Races a sponsor can choose for a single-race deal. Placeholder dates: check and edit.
+  // Races a sponsor can choose for a single-race deal. Placeholders: replace with the real 2027 calendar.
   races: [
-    { name: "MetaSprint Duathlon, Singapore", date: "Feb" },
-    { name: "Ironman 70.3 Desaru Coast", date: "Mar" },
-    { name: "Singapore International Triathlon", date: "May" },
-    { name: "Ironman 70.3 Bintan", date: "Aug" },
-    { name: "MetaSprint Triathlon, Singapore", date: "Sep" },
-    { name: "Ironman 70.3 Langkawi", date: "Nov" },
+    { name: "MetaSprint Series, Singapore", date: "dates TBC" },
+    { name: "SMU Aquathlon SwimRunSprint, Sentosa", date: "date TBC" },
+    { name: "Asia Triathlon Cup race", date: "TBC" },
+    { name: "Ironman 70.3 race (Southeast Asia)", date: "TBC" },
+    { name: "Ironman 70.3 race (Southeast Asia)", date: "TBC" },
+    { name: "Major Games (if selected)", date: "TBC" },
   ],
 
   // One entry per spot. `race` = price for one race, `season` = whole season (S$).
